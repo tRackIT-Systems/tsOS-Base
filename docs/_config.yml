@@ -5,10 +5,10 @@ theme: jekyll-theme-cayman
 
 github:
   is_project_page: true
-  repository_url: https://github.com/nature40/trackit-os
+  repository_url: https://github.com/tRackIT-Systems/trackit-os
   repository_name: "tRackIT-OS"
-  owner_url: https://www.uni-marburg.de/en/fb19/natur40
-  owner_name: Natur 4.0 | Sensing Biodiversity
+  owner_url: https://trackit.systems
+  owner_name: tRackIT Systems
 
 # Build settings
 defaults:

@@ -4,7 +4,7 @@ menu: Operation
 
 # Operation
 
-The *tRackIT OS* consists of multiple components responsible for signal detection ([`pyradiotracking`](https://github.com/Nature40/pyradiotracking)), configuration and maintenance ([`pymqttutil`](https://github.com/Nature40/pymqttutil), [`systemd`](https://www.freedesktop.org/wiki/Software/systemd/), [`sysdweb`](https://github.com/ogarcia/sysdweb), `pyradiotracking-lora`) and communication ([`wireguard`](https://www.wireguard.com), [`mosquitto`](https://mosquitto.org), [`caddy`](https://caddyserver.com), `ssh`).
+The *tRackIT OS* consists of multiple components responsible for signal detection ([`pyradiotracking`](https://github.com/tRackIT-Systems/pyradiotracking)), configuration and maintenance ([`pymqttutil`](https://github.com/tRackIT-Systems/pymqttutil), [`systemd`](https://www.freedesktop.org/wiki/Software/systemd/), [`sysdweb`](https://github.com/ogarcia/sysdweb), `pyradiotracking-lora`) and communication ([`wireguard`](https://www.wireguard.com), [`mosquitto`](https://mosquitto.org), [`caddy`](https://caddyserver.com), `ssh`).
 The services are interleaved and do rely on each other at multiple points.
 The goal of this page is to present the operating system configuration and make automatic error detection and correction more transparent.
 

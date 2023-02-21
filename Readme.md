@@ -1,11 +1,11 @@
 # tRackIT OS
-[![Build Images](https://github.com/Nature40/tRackIT-OS/actions/workflows/build_images.yml/badge.svg)](https://github.com/Nature40/tRackIT-OS/actions/workflows/build_images.yml)
+[![Build Images](https://github.com/tRackIT-Systems/tRackIT-OS/actions/workflows/build_images.yml/badge.svg)](https://github.com/tRackIT-Systems/tRackIT-OS/actions/workflows/build_images.yml)
 
 tRackIT OS is an open-source software for reliable VHF radio tracking of (small) animals in their wildlife habitat. tRackIT OS is an operating system distribution for tRackIT stations that receive signals emitted by VHF tags mounted on animals and are built from low-cost commodity-off-the-shelf hardware. tRackIT OS provides software components for VHF signal processing, system monitoring, configuration management, and user access. In particular, it records, stores, analyzes, and transmits detected VHF signals and their descriptive features, e.g., to calculate bearings of signals emitted by VHF radio tags mounted on animals or to perform animal activity classification. 
 
 ## Download
 
-The image of tRackIT OS can be downloaded in the [GitHub Releases](https://github.com/Nature40/tRackIT-OS/releases) section of this repository. 
+The image of tRackIT OS can be downloaded in the [GitHub Releases](https://github.com/tRackIT-Systems/tRackIT-OS/releases) section of this repository. 
 
 ## Configuration
 
@@ -17,11 +17,11 @@ The system can be configured through different files in the `/boot` partition.
 
 ### [`/boot/radiotracking.ini`](boot/radiotracking.ini)
 
-Hold the configuration of `pyradiotracking`, [see example config](https://github.com/Nature40/pyradiotracking/blob/master/etc/radiotracking.ini).
+Hold the configuration of `pyradiotracking`, [see example config](https://github.com/tRackIT-Systems/pyradiotracking/blob/master/etc/radiotracking.ini).
 
 ### [`/boot/mqttutil.conf`](boot/mqttutil.conf)
 
-Mqttutil reports system statistics via MQTT, [see example config](https://github.com/Nature40/pymqttutil/blob/main/etc/mqttutil.conf).
+Mqttutil reports system statistics via MQTT, [see example config](https://github.com/tRackIT-Systems/pymqttutil/blob/main/etc/mqttutil.conf).
 
 
 ### `/boot/wireguard.conf`
