@@ -191,5 +191,8 @@ core_freq=250
 force_turbo=1
 EOF
 
+# Enable gpsd
+RUN systemctl enable gpsd
+
 # Install docs folder (if HTML available)
 if [ -d docs/_site22/ ]; then INSTALL docs/_site /data/docs; fi
