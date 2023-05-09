@@ -1,4 +1,7 @@
-FROM Base.img
+# Set default ARCH
+: ${ARCH:=arm64}
+
+FROM "Base-${ARCH}.img"
 PUMP 300M
 
 # Install custom folders 

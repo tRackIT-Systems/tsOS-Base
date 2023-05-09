@@ -1,0 +1,4 @@
+# set ARCH
+ARCH=armhf
+
+INCLUDE Base

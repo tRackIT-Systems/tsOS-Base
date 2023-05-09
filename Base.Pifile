@@ -1,4 +1,8 @@
-FROM https://downloads.raspberrypi.org/raspios_lite_arm64/images/raspios_lite_arm64-2023-05-03/2023-05-03-raspios-bullseye-arm64-lite.img.xz
+# Set default ARCH
+: ${ARCH:=arm64}
+
+FROM https://downloads.raspberrypi.org/raspios_lite_${ARCH}/images/raspios_lite_${ARCH}-2023-05-03/2023-05-03-raspios-bullseye-${ARCH}-lite.img.xz
+TO "Base-${ARCH}.img"
 PUMP 800M
 
 # Update OS and sources
@@ -24,7 +28,11 @@ RUN apt-get install -y \
     wireguard-tools
 
 # Install caddy
-RUN bash -c "curl -L https://github.com/caddyserver/caddy/releases/download/v2.6.4/caddy_2.6.4_linux_arm64.tar.gz | tar xz caddy"
+if [[ "$ARCH" == "armhf" ]]; then
+    RUN bash -c "curl -L https://github.com/caddyserver/caddy/releases/download/v2.6.4/caddy_2.6.4_linux_armv7.tar.gz | tar xz caddy"
+else
+    RUN bash -c "curl -L https://github.com/caddyserver/caddy/releases/download/v2.6.4/caddy_2.6.4_linux_${ARCH}.tar.gz | tar xz caddy"
+fi
 RUN mv caddy /usr/bin/caddy
 RUN groupadd --system caddy
 RUN useradd --system \
@@ -36,7 +44,11 @@ RUN useradd --system \
     caddy
 
 # Install filebrowser
-RUN bash -c "curl -L https://github.com/filebrowser/filebrowser/releases/download/v2.23.0/linux-arm64-filebrowser.tar.gz | tar xz filebrowser"
+if [[ "$ARCH" == "armhf" ]]; then
+    RUN bash -c "curl -L https://github.com/filebrowser/filebrowser/releases/download/v2.23.0/linux-armv7-filebrowser.tar.gz | tar xz filebrowser"
+else
+    RUN bash -c "curl -L https://github.com/filebrowser/filebrowser/releases/download/v2.23.0/linux-${ARCH}-filebrowser.tar.gz | tar xz filebrowser"
+fi
 RUN mv filebrowser /usr/bin/filebrowser
 
 # Install mosquitto
