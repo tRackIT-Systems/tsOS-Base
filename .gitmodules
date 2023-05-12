@@ -21,4 +21,4 @@
 	url = https://github.com/tRackIT-Systems/pybatrack
 [submodule "home/pi/RPi_Cam_Web_Interface"]
 	path = home/pi/RPi_Cam_Web_Interface
-	url = git@github.com:silvanmelchior/RPi_Cam_Web_Interface.git
+	url = https://github.com/silvanmelchior/RPi_Cam_Web_Interface.git
