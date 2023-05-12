@@ -16,3 +16,9 @@
 [submodule "home/pi/pysmartsolar"]
 	path = home/pi/pysmartsolar
 	url = https://github.com/tRackIT-System/pysmartsolar
+[submodule "home/pi/pybatrack"]
+	path = home/pi/pybatrack
+	url = https://github.com/tRackIT-Systems/pybatrack
+[submodule "home/pi/RPi_Cam_Web_Interface"]
+	path = home/pi/RPi_Cam_Web_Interface
+	url = git@github.com:silvanmelchior/RPi_Cam_Web_Interface.git
