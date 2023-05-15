@@ -26,6 +26,7 @@ EOF
 # Install RPi_Cam_Web_Interface software (restore rc.local afterwards)
 RUN cp /etc/rc.local /etc/rc.local.bak
 RUN /home/pi/RPi_Cam_Web_Interface/install.sh q
+RUN chmod 777 /var/www/html/media
 
 # Set custom user configuration
 RUN tee -a /var/www/html/uconfig <<EOF
