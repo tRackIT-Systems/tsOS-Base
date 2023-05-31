@@ -108,7 +108,7 @@ RUN ln -s /boot/wireguard.conf /etc/wireguard/wireguard.conf
 RUN systemctl enable wg-quick@wireguard
 RUN tee -a /etc/sysdweb.conf <<EOF
 [wg-quick@wireguard]
-title = Wireguard (/boot/wireguard.conf)
+title = Wireguard | Remote Access (/boot/wireguard.conf)
 unit = wg-quick@wireguard
 EOF
 
@@ -134,14 +134,14 @@ RUN systemctl enable filebrowser
 RUN systemctl enable mosquitto.service
 RUN tee -a /etc/sysdweb.conf <<EOF
 [Mosquitto]
-title = Mosquitto MQTT Broker
+title = Mosquitto | MQTT Broker
 unit = mosquitto
 EOF
 
 # List chrony
 RUN tee -a /etc/sysdweb.conf <<EOF
 [chrony]
-title = Chrony Time Synchronization
+title = Chrony | Time Synchronization
 unit = chrony
 EOF
 RUN systemctl enable chrony-waitsync
@@ -155,7 +155,7 @@ RUN python3 -m pip install psutil
 RUN systemctl enable mqttutil.service
 RUN tee -a /etc/sysdweb.conf <<EOF
 [mqttutil]
-title = MQTTUtil
+title = MQTTUtil | System Health State
 unit = mqttutil
 EOF
 
@@ -175,12 +175,8 @@ RUN systemctl enable radiotracking.service
 RUN systemctl enable radiotracking-config.service
 RUN tee -a /etc/sysdweb.conf <<EOF
 [radiotracking]
-title = RadioTracking
+title = RadioTracking | VHF Signal Detection
 unit = radiotracking
-
-[radiotracking-config]
-title = RadioTracking Configuration
-unit = radiotracking-config
 EOF
 
 # Enable hardware connectivity 

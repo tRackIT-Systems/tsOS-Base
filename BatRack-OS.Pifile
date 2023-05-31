@@ -49,17 +49,11 @@ RUN systemctl enable raspimjpeg.service
 RUN tee -a /etc/sysdweb.conf <<EOF
 
 [raspimjpeg]
-title = RaspiMJPEG
+title = RaspiMJPEG | Raspberry Pi Camera MJPEG Stream
 unit = raspimjpeg
 EOF
 
 RUN systemctl enable raspiwebcam.service
-RUN tee -a /etc/sysdweb.conf <<EOF
-
-[raspiwebcam]
-title = RPi Cam Web Interface
-unit = raspiwebcam
-EOF
 
 # Install BatRack dependenies
 RUN apt-get install -y python3-numpy python3-pyaudio
@@ -70,6 +64,6 @@ RUN systemctl enable batrack.service
 RUN tee -a /etc/sysdweb.conf <<EOF
 
 [BatRack]
-title = BatRack
+title = BatRack | Audiovisual Bat Recording
 unit = batrack
 EOF
