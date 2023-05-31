@@ -164,6 +164,7 @@ RUN systemctl enable dmesgdump
 
 # Install uhubctl (dependency) and enable huaweicheck
 RUN bash -c 'cd /home/pi/uhubctl; make; make install'
+RUN systemctl enable huaweicheck.timer
 
 # Blacklist DVB-T driver
 RUN tee -a /etc/modprobe.d/raspi-blacklist.conf <<<'blacklist dvb_usb_rtl28xxu'
