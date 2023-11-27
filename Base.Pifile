@@ -1,9 +1,9 @@
 # Set default ARCH
 : ${ARCH:=arm64}
 
-FROM https://downloads.raspberrypi.org/raspios_lite_${ARCH}/images/raspios_lite_${ARCH}-2023-05-03/2023-05-03-raspios-bullseye-${ARCH}-lite.img.xz
+FROM https://downloads.raspberrypi.com/raspios_lite_${ARCH}/images/raspios_lite_${ARCH}-2023-10-10/2023-10-10-raspios-bookworm-${ARCH}-lite.img.xz
 TO "Base-${ARCH}.img"
-PUMP 800M
+PUMP 1500M
 
 # Update OS and sources
 RUN apt-get update
@@ -16,7 +16,6 @@ RUN apt-get install -y \
     git \
     mosh \
     libusb-1.0-0-dev
-RUN pip3 install --upgrade pip
 
 # Install networking tools
 RUN apt-get install -y \
@@ -29,9 +28,9 @@ RUN apt-get install -y \
 
 # Install caddy
 if [[ "$ARCH" == "armhf" ]]; then
-    RUN bash -c "curl -L https://github.com/caddyserver/caddy/releases/download/v2.6.4/caddy_2.6.4_linux_armv7.tar.gz | tar xz caddy"
+    RUN bash -c "curl -L https://github.com/caddyserver/caddy/releases/download/v2.7.5/caddy_2.7.5_linux_armv7.tar.gz | tar xz caddy"
 else
-    RUN bash -c "curl -L https://github.com/caddyserver/caddy/releases/download/v2.6.4/caddy_2.6.4_linux_${ARCH}.tar.gz | tar xz caddy"
+    RUN bash -c "curl -L https://github.com/caddyserver/caddy/releases/download/v2.7.5/caddy_2.7.5_linux_${ARCH}.tar.gz | tar xz caddy"
 fi
 RUN mv caddy /usr/bin/caddy
 RUN groupadd --system caddy
@@ -45,9 +44,9 @@ RUN useradd --system \
 
 # Install filebrowser
 if [[ "$ARCH" == "armhf" ]]; then
-    RUN bash -c "curl -L https://github.com/filebrowser/filebrowser/releases/download/v2.23.0/linux-armv7-filebrowser.tar.gz | tar xz filebrowser"
+    RUN bash -c "curl -L https://github.com/filebrowser/filebrowser/releases/download/v2.26.0/linux-armv7-filebrowser.tar.gz | tar xz filebrowser"
 else
-    RUN bash -c "curl -L https://github.com/filebrowser/filebrowser/releases/download/v2.23.0/linux-${ARCH}-filebrowser.tar.gz | tar xz filebrowser"
+    RUN bash -c "curl -L https://github.com/filebrowser/filebrowser/releases/download/v2.26.0/linux-${ARCH}-filebrowser.tar.gz | tar xz filebrowser"
 fi
 RUN mv filebrowser /usr/bin/filebrowser
 
@@ -65,7 +64,7 @@ RUN apt-get install -y \
     python3-numpy \
     python3-scipy \
     python3-paho-mqtt
-RUN python3 -m pip install dash
+RUN python3 -m pip install --break-system-packages dash
 
 # Install GPS / NTP software
 RUN apt-get install --no-install-recommends -y \

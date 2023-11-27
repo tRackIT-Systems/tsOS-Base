@@ -116,7 +116,7 @@ EOF
 ### services configuration
 
 # install and enable enable sysdweb
-RUN python3 -m pip install -e /home/pi/sysdweb
+RUN python3 -m pip install --break-system-packages -e /home/pi/sysdweb
 RUN systemctl enable sysdweb
 
 # Create symlinks for other webserver targets
@@ -147,11 +147,11 @@ EOF
 RUN systemctl enable chrony-waitsync
 
 # Install and enable pysmartsolar
-RUN python3 -m pip install -e /home/pi/pysmartsolar
+RUN python3 -m pip install --break-system-packages -e /home/pi/pysmartsolar
 
 # Install and enable pymqttutil
-RUN python3 -m pip install -e /home/pi/pymqttutil
-RUN python3 -m pip install psutil
+RUN python3 -m pip install --break-system-packages -e /home/pi/pymqttutil
+RUN python3 -m pip install --break-system-packages psutil
 RUN systemctl enable mqttutil.service
 RUN tee -a /etc/sysdweb.conf <<EOF
 [mqttutil]
@@ -170,7 +170,7 @@ RUN systemctl enable huaweicheck.timer
 RUN tee -a /etc/modprobe.d/raspi-blacklist.conf <<<'blacklist dvb_usb_rtl28xxu'
 
 # Install radiotracking
-RUN python3 -m pip install -e /home/pi/pyradiotracking
+RUN python3 -m pip install --break-system-packages -e /home/pi/pyradiotracking
 RUN systemctl enable radiotracking.service
 RUN systemctl enable radiotracking-config.service
 RUN tee -a /etc/sysdweb.conf <<EOF
