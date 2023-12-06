@@ -22,3 +22,6 @@
 [submodule "home/pi/RPi_Cam_Web_Interface"]
 	path = home/pi/RPi_Cam_Web_Interface
 	url = https://github.com/silvanmelchior/RPi_Cam_Web_Interface.git
+[submodule "home/pi/snd-i2s_rpi"]
+	path = home/pi/snd-i2s_rpi
+	url = https://github.com/tRackIT-Systems/snd-i2s_rpi.git

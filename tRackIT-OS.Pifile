@@ -196,3 +196,11 @@ RUN systemctl enable gpsd
 
 # Install docs folder (if HTML available)
 if [ -d docs/_site22/ ]; then INSTALL docs/_site /data/docs; fi
+
+# Enable i2s
+RUN sed -i 's/#dtparam=i2s=on/dtparam=i2s=on/' /boot/firmware/config.txt
+
+# Build snd-i2s_rpi kernel module
+RUN cp -R /home/pi/snd-i2s_rpi /usr/src/snd-i2s_rpi-0.0.3
+RUN bash -c 'for k in /lib/modules/*; do dkms install -k $(basename $k) snd-i2s_rpi/0.0.3; done'
+RUN tee -a /etc/modules <<<snd-i2s_rpi
