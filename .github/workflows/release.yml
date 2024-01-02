@@ -1,4 +1,4 @@
-name: Build tsOS-arm64-Base
+name: Release tsOS-Base
 
 on:
   push:
@@ -6,8 +6,23 @@ on:
       - "*"
 
 jobs:
-  build:
+  create-release:
     runs-on: ubuntu-latest
+    steps:
+      - name: Create GitHub release
+        id: create_release
+        uses: actions/create-release@v1.0.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: ${{ github.ref }}
+          draft: false
+          prerelease: true
+
+  build-arm64:
+    runs-on: ubuntu-latest
+    needs: create-release
     steps:
       - name: Checkout repository
         uses: actions/checkout@v1
@@ -26,16 +41,6 @@ jobs:
         run: mv Base-arm64.img tsOS-arm64-Base-${{ env.RELEASE_VERSION }}.img
       - name: Package tsOS-arm64-Base-${{ env.RELEASE_VERSION }}.zip
         run: zip tsOS-arm64-Base-${{ env.RELEASE_VERSION }}.zip tsOS-arm64-Base-${{ env.RELEASE_VERSION }}.img
-      - name: Create GitHub release
-        id: create_release
-        uses: actions/create-release@v1.0.0
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          tag_name: ${{ github.ref }}
-          release_name: ${{ github.ref }}
-          draft: false
-          prerelease: true
       - name: Upload tsOS-arm64-Base-${{ env.RELEASE_VERSION }}.zip to release
         id: upload_zip
         uses: actions/upload-release-asset@v1.0.1
