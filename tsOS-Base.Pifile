@@ -2,7 +2,7 @@
 : ${ARCH:=arm64}
 
 FROM https://downloads.raspberrypi.com/raspios_lite_${ARCH}/images/raspios_lite_${ARCH}-2023-10-10/2023-10-10-raspios-bookworm-${ARCH}-lite.img.xz
-TO "Base-${ARCH}.img"
+TO "tsOS-Base-${ARCH}.img"
 PUMP 1500M
 
 #################################################
