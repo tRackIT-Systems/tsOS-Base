@@ -11,14 +11,6 @@
     handle_path /data/* {
         reverse_proxy http://localhost:8080
     }
- 
-    route /radiotracking/* {
-        reverse_proxy http://localhost:8050
-    }
-
-    route /radiotracking-config/* {
-        reverse_proxy http://localhost:8051
-    }
 
     route /html/* {
         reverse_proxy http://localhost:81

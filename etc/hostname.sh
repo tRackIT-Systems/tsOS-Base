@@ -2,7 +2,7 @@
 
 echo "Running RasperryPi hostname configuration script..." 1>&2
 
-HOSTNAME="nature40-sensorbox"
+HOSTNAME="tsOS-Base"
 ID=`cat /proc/cpuinfo | grep Serial | cut -d ' ' -f 2 | cut -c9-16`
 
 if [ "$ID" == "" ]; then
@@ -35,7 +35,7 @@ ff02::2		ip6-allrouters
 127.0.1.1	$HOSTNAME
 EOF
 
-echo "Appending /boot/hosts" 1>&2
-cat /boot/hosts >> /etc/hosts
+echo "Appending /boot/firmware/hosts" 1>&2
+cat /boot/firmware/hosts >> /etc/hosts
 
 echo "Done." 1>&2

@@ -1,27 +1,18 @@
 [submodule "pimod"]
 	path = pimod
 	url = https://github.com/Nature40/pimod.git
-[submodule "Base/home/pi/sysdweb"]
+[submodule "home/pi/sysdweb"]
 	path = home/pi/sysdweb
 	url = https://github.com/tRackIT-Systems/sysdweb
-[submodule "Base/home/pi/uhubctl"]
+[submodule "home/pi/uhubctl"]
 	path = home/pi/uhubctl
 	url = https://github.com/mvp/uhubctl
-[submodule "RadioTracking/home/pi/pyradiotracking"]
-	path = home/pi/pyradiotracking
-	url = https://github.com/tRackIT-Systems/pyradiotracking.git
-[submodule "RadioTracking/home/pi/pymqttutil"]
+[submodule "home/pi/pymqttutil"]
 	path = home/pi/pymqttutil
 	url = https://github.com/tRackIT-Systems/pymqttutil
 [submodule "home/pi/pysmartsolar"]
 	path = home/pi/pysmartsolar
 	url = https://github.com/tRackIT-System/pysmartsolar
-[submodule "home/pi/pybatrack"]
-	path = home/pi/pybatrack
-	url = https://github.com/tRackIT-Systems/pybatrack
-[submodule "home/pi/RPi_Cam_Web_Interface"]
-	path = home/pi/RPi_Cam_Web_Interface
-	url = https://github.com/silvanmelchior/RPi_Cam_Web_Interface.git
 [submodule "home/pi/snd-i2s_rpi"]
 	path = home/pi/snd-i2s_rpi
 	url = https://github.com/tRackIT-Systems/snd-i2s_rpi.git

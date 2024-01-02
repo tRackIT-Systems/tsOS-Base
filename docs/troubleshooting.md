@@ -16,15 +16,15 @@ There are multiple reasons why *pyradiotracking* or the *tRackIT station* keeps 
 Bad connections and failing SDR sticks can be identified by [looking at `pyradiotrackings` log files](tasks#investigate-log-files) and check if the same SDR is failing over and over again:
 
 ```console
-Jun 15 16:03:13 mof-rts-00015 bash[1135]: WARNING:radiotracking:SDR 1 will be restarted.
-Jun 15 16:03:14 mof-rts-00015 bash[1135]: Found Rafael Micro R820T tuner
-Jun 15 16:03:14 mof-rts-00015 bash[1135]: [R82XX] PLL not locked!
-Jun 15 16:03:14 mof-rts-00015 bash[1135]: Allocating 15 zero-copy buffers
-Jun 15 16:03:19 mof-rts-00015 bash[1135]: WARNING:radiotracking.analyze:SDR 1 total clock drift (0.93777 s) is larger than two blocks, signal detection is degraded. Terminating...
-Jun 15 16:03:21 mof-rts-00015 bash[1135]: WARNING:radiotracking:SDR 1 will be restarted.
-Jun 15 16:03:22 mof-rts-00015 bash[1135]: Found Rafael Micro R820T tuner
-Jun 15 16:03:22 mof-rts-00015 bash[1135]: [R82XX] PLL not locked!
-Jun 15 16:03:14 mof-rts-00015 bash[1135]: Allocating 15 zero-copy buffers
+Jun 15 16:03:13 workshop-dev-00001 bash[1135]: WARNING:radiotracking:SDR 1 will be restarted.
+Jun 15 16:03:14 workshop-dev-00001 bash[1135]: Found Rafael Micro R820T tuner
+Jun 15 16:03:14 workshop-dev-00001 bash[1135]: [R82XX] PLL not locked!
+Jun 15 16:03:14 workshop-dev-00001 bash[1135]: Allocating 15 zero-copy buffers
+Jun 15 16:03:19 workshop-dev-00001 bash[1135]: WARNING:radiotracking.analyze:SDR 1 total clock drift (0.93777 s) is larger than two blocks, signal detection is degraded. Terminating...
+Jun 15 16:03:21 workshop-dev-00001 bash[1135]: WARNING:radiotracking:SDR 1 will be restarted.
+Jun 15 16:03:22 workshop-dev-00001 bash[1135]: Found Rafael Micro R820T tuner
+Jun 15 16:03:22 workshop-dev-00001 bash[1135]: [R82XX] PLL not locked!
+Jun 15 16:03:14 workshop-dev-00001 bash[1135]: Allocating 15 zero-copy buffers
 ...
 ```
 The multiple restarting of SDR 1 indicates, that its connection or the device itself is broken and should be checked and potentially replaced. 
@@ -32,21 +32,21 @@ The multiple restarting of SDR 1 indicates, that its connection or the device it
 If the different SDRs are failing and restarting at random, it is more likely that the system has a general problem.
 
 ```console
-Jun 15 16:04:03 mof-rts-00015 bash[1246]: WARNING:radiotracking.analyze:SDR 1 total clock drift (1.03648 s) is larger than two blocks, signal detection is degraded. Terminating...
-Jun 15 16:04:04 mof-rts-00015 bash[1246]: WARNING:radiotracking.analyze:SDR 2 total clock drift (0.91334 s) is larger than two blocks, signal detection is degraded. Terminating...
-Jun 15 16:04:04 mof-rts-00015 bash[1246]: WARNING:radiotracking.analyze:SDR 3 total clock drift (0.91257 s) is larger than two blocks, signal detection is degraded. Terminating...
-Jun 15 16:04:05 mof-rts-00015 bash[1246]: WARNING:radiotracking:SDR 1 will be restarted.
-Jun 15 16:04:05 mof-rts-00015 bash[1246]: WARNING:radiotracking:SDR 2 will be restarted.
-Jun 15 16:04:05 mof-rts-00015 bash[1246]: WARNING:radiotracking:SDR 3 will be restarted.
-Jun 15 16:04:05 mof-rts-00015 bash[1246]: Found Rafael Micro R820T tuner
-Jun 15 16:04:06 mof-rts-00015 bash[1246]: Found Rafael Micro R820T tuner
-Jun 15 16:04:06 mof-rts-00015 bash[1246]: Found Rafael Micro R820T tuner
-Jun 15 16:04:06 mof-rts-00015 bash[1246]: [R82XX] PLL not locked!
-Jun 15 16:04:06 mof-rts-00015 bash[1246]: [R82XX] PLL not locked!
-Jun 15 16:04:06 mof-rts-00015 bash[1246]: [R82XX] PLL not locked!
-Jun 15 16:04:06 mof-rts-00015 bash[1246]: Allocating 15 zero-copy buffers
-Jun 15 16:04:06 mof-rts-00015 bash[1246]: Allocating 15 zero-copy buffers
-Jun 15 16:04:06 mof-rts-00015 bash[1246]: Allocating 15 zero-copy buffers
+Jun 15 16:04:03 workshop-dev-00001 bash[1246]: WARNING:radiotracking.analyze:SDR 1 total clock drift (1.03648 s) is larger than two blocks, signal detection is degraded. Terminating...
+Jun 15 16:04:04 workshop-dev-00001 bash[1246]: WARNING:radiotracking.analyze:SDR 2 total clock drift (0.91334 s) is larger than two blocks, signal detection is degraded. Terminating...
+Jun 15 16:04:04 workshop-dev-00001 bash[1246]: WARNING:radiotracking.analyze:SDR 3 total clock drift (0.91257 s) is larger than two blocks, signal detection is degraded. Terminating...
+Jun 15 16:04:05 workshop-dev-00001 bash[1246]: WARNING:radiotracking:SDR 1 will be restarted.
+Jun 15 16:04:05 workshop-dev-00001 bash[1246]: WARNING:radiotracking:SDR 2 will be restarted.
+Jun 15 16:04:05 workshop-dev-00001 bash[1246]: WARNING:radiotracking:SDR 3 will be restarted.
+Jun 15 16:04:05 workshop-dev-00001 bash[1246]: Found Rafael Micro R820T tuner
+Jun 15 16:04:06 workshop-dev-00001 bash[1246]: Found Rafael Micro R820T tuner
+Jun 15 16:04:06 workshop-dev-00001 bash[1246]: Found Rafael Micro R820T tuner
+Jun 15 16:04:06 workshop-dev-00001 bash[1246]: [R82XX] PLL not locked!
+Jun 15 16:04:06 workshop-dev-00001 bash[1246]: [R82XX] PLL not locked!
+Jun 15 16:04:06 workshop-dev-00001 bash[1246]: [R82XX] PLL not locked!
+Jun 15 16:04:06 workshop-dev-00001 bash[1246]: Allocating 15 zero-copy buffers
+Jun 15 16:04:06 workshop-dev-00001 bash[1246]: Allocating 15 zero-copy buffers
+Jun 15 16:04:06 workshop-dev-00001 bash[1246]: Allocating 15 zero-copy buffers
 ```
 
 The warning message in line 1 indicates that data is not analysed fast enough on this station, which leads to the analyzer being restarted. 
@@ -67,7 +67,7 @@ First you may check sysdweb for potential log error messages:
 While there might be problems to specific custom configurations, the most common error is that the cellular network connection is not working.  
 You can check this by [logging in via SSH](tasks#login-via-ssh) and using the `ping` utility:
 ```console
-pi@mof-rts-00015:~ $ ping -c4 8.8.8.8
+pi@workshop-dev-00001:~ $ ping -c4 8.8.8.8
 PING 8.8.8.8 (8.8.8.8) 56(84) bytes of data.
 
 --- 8.8.8.8 ping statistics ---
@@ -77,7 +77,7 @@ The example above shows, that the network connection is not working correctly.
 
 You can further check if the LTE stick is recognized by *tRackIT OS* using `ip`:
 ```console
-pi@mof-rts-00015:~ $ ip addr show eth1
+pi@workshop-dev-00001:~ $ ip addr show eth1
 4: eth1: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
     link/ether 0c:5b:8f:27:9a:64 brd ff:ff:ff:ff:ff:ff
     inet 192.168.8.100/24 brd 192.168.8.255 scope global dynamic eth1

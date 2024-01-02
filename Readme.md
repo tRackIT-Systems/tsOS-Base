@@ -63,39 +63,17 @@ The system can be configured through different files in the `/boot` partition.
 
 ### `boot/cmdline.txt`
 
-`cmdline.txt` holds the kernel boot commandline, which allows to configure the hostname in newer systemd versions. This behavioud is emulated and a hostname can be configured by setting `systemd.hostname=tRackIT-00001`
+`cmdline.txt` holds the kernel boot commandline, which allows to configure the hostname in newer systemd versions. This behavioud is emulated and a hostname can be configured by setting `systemd.hostname=workshop-test-00001`
 
-### [`/boot/radiotracking.ini`](boot/radiotracking.ini)
-
-Hold the configuration of `pyradiotracking`, [see example config](https://github.com/tRackIT-Systems/pyradiotracking/blob/master/etc/radiotracking.ini).
-
-### [`/boot/mqttutil.conf`](boot/mqttutil.conf)
+### [`/boot/firmware/mqttutil.conf`](boot/mqttutil.conf)
 
 Mqttutil reports system statistics via MQTT, [see example config](https://github.com/tRackIT-Systems/pymqttutil/blob/main/etc/mqttutil.conf).
 
 
-### `/boot/wireguard.conf`
+### `/boot/firmware/wireguard.conf`
 
 A wireguard configuration can be set using this configuration file. 
 
-### [`/boot/mosquitto.d/`](boot/mosquitto.d/)
+### [`/boot/firmware/mosquitto.d/`](boot/mosquitto.d/)
 
 Files in this directory are loaded by mosquitto. E.g. mqtt brokers for reporting can be set using files in this folder.
-
-## Scientific Usage & Citation
-
-If you are using tRackIT OS in academia, we'd appreciate if you cited our [scientific research paper](https://jonashoechst.de/assets/papers/hoechst2021tRackIT.pdf). Please cite as "Höchst & Gottwald et al."
-
-> J. Höchst, J. Gottwald, P. Lampe, J. Zobel, T. Nauss, R. Steinmetz, and B. Freisleben, “tRackIT OS: Open-source Software for Reliable VHF Wildlife Tracking,” in 51. Jahrestagung der Gesellschaft für Informatik, Digitale Kulturen, INFORMATIK 2021, Berlin, Germany, 2021.
-
-```bibtex
-@inproceedings{hoechst2021tRackIT,
-  title = {{tRackIT OS: Open-source Software for Reliable VHF Wildlife Tracking}},
-  author = {Höchst, Jonas and Gottwald, Jannis and Lampe, Patrick and Zobel, Julian and Nauss, Thomas and Steinmetz, Ralf and Freisleben, Bernd},
-  booktitle = {51. Jahrestagung der Gesellschaft f{\"{u}}r Informatik, Digitale Kulturen, {INFORMATIK} 2021, Berlin, Germany},
-  series = {{LNI}},
-  publisher = {{GI}},
-  month = sep,
-  year = {2021}
-}
-```
