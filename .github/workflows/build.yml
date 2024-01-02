@@ -3,8 +3,16 @@ name: Build tsOS-Base Images
 on: push
 
 jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create release
+        uses: softprops/action-gh-release@v1
+        if: startsWith(github.ref, 'refs/tags/')
+
   build-arm64:
     runs-on: ubuntu-latest
+    needs: release
     steps:
       - name: Checkout repository
         uses: actions/checkout@v1
@@ -17,23 +25,42 @@ jobs:
         with:
           pifile: tsOS-Base.Pifile
 
+      - name: Package tsOS-Base-arm64-${{github.ref_name}}.zip
+        if: startsWith(github.ref, 'refs/tags/')
+        run: |
+          mv tsOS-Base-arm64.img tsOS-Base-arm64-${{github.ref_name}}.img
+          zip tsOS-Base-arm64-${{github.ref_name}}.zip tsOS-Base-arm64-${{github.ref_name}}.img
+
+      - name: Upload Release tsOS-Base-arm64-${{github.ref_name}}.zip
+        if: startsWith(github.ref, 'refs/tags/')
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh release upload ${{github.ref_name}} tsOS-Base-arm64-${{github.ref_name}}.zip
+
+  build-armhf:
+    runs-on: ubuntu-latest
+    needs: release
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v1
+        with:
+          submodules: recursive
+          token: ${{ secrets.PAT_JONASHOECHST }}
+
       - name: Run tsOS-Base-armhf.Pifile
         uses: Nature40/pimod@v0.6.0
         with:
           pifile: tsOS-Base-armhf.Pifile
 
-      - name: Set Release Version
-        if: startsWith(github.ref, 'refs/tags/')
-        run: echo "RELEASE_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
-      - name: Package tsOS-Base-arm64-${{ env.RELEASE_VERSION }}.zip
+      - name: Package tsOS-Base-armhf-${{github.ref_name}}.zip
         if: startsWith(github.ref, 'refs/tags/')
         run: |
-          mv tsOS-Base-arm64.img tsOS-Base-arm64-${{ env.RELEASE_VERSION }}.img
-          zip tsOS-Base-arm64-${{ env.RELEASE_VERSION }}.zip tsOS-Base-arm64-${{ env.RELEASE_VERSION }}.img
-      - name: Release tsOS-Base ${{ env.RELEASE_VERSION }}
-        uses: softprops/action-gh-release@v1
+          mv tsOS-Base-armhf.img tsOS-Base-armhf-${{github.ref_name}}.img
+          zip tsOS-Base-armhf-${{github.ref_name}}.zip tsOS-Base-armhf-${{github.ref_name}}.img
+
+      - name: Upload Release tsOS-Base-armhf-${{github.ref_name}}.zip
         if: startsWith(github.ref, 'refs/tags/')
-        with:
-          files: |
-            tsOS-Base-arm64-${{ env.RELEASE_VERSION }}.zip
-            tsOS-Base-armhf-${{ env.RELEASE_VERSION }}.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh release upload ${{github.ref_name}} tsOS-Base-armhf-${{github.ref_name}}.zip
+
