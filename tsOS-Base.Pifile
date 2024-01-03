@@ -99,26 +99,18 @@ RUN systemctl disable regenerate_ssh_host_keys
 INSTALL home/pi/.ssh /home/pi/.ssh
 RUN chown pi:pi /home/pi
 RUN chown pi:pi /home/pi/.ssh
-RUN chown pi:pi /home/pi/.ssh/id_ed25519
-RUN chown pi:pi /home/pi/.ssh/id_ed25519.pub
 RUN chown pi:pi /home/pi/.ssh/authorized_keys
 RUN chmod 755   /home/pi
 RUN chmod 700   /home/pi/.ssh
-RUN chmod 600   /home/pi/.ssh/id_ed25519
-RUN chmod 644   /home/pi/.ssh/id_ed25519.pub
 RUN chmod 644   /home/pi/.ssh/authorized_keys
 
 # Install root ssh files and fix permissions
 INSTALL home/pi/.ssh /root/.ssh
 RUN chown root:root /root
 RUN chown root:root /root/.ssh
-RUN chown root:root /root/.ssh/id_ed25519
-RUN chown root:root /root/.ssh/id_ed25519.pub
 RUN chown root:root /root/.ssh/authorized_keys
 RUN chmod 755       /root
 RUN chmod 700       /root/.ssh
-RUN chmod 600       /root/.ssh/id_ed25519
-RUN chmod 644       /root/.ssh/id_ed25519.pub
 RUN chmod 644       /root/.ssh/authorized_keys
 
 # Set default password
