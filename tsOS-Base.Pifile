@@ -18,7 +18,8 @@ RUN apt-get install -y \
     vim \
     git \
     mosh \
-    libusb-1.0-0-dev
+    libusb-1.0-0-dev \
+    zsh
 
 # Install networking tools
 RUN apt-get install -y \
@@ -117,6 +118,9 @@ RUN chmod 644       /root/.ssh/authorized_keys
 RUN bash -c 'echo -n "pi:" > /boot/firmware/userconf.txt'
 RUN bash -c 'echo "natur" | openssl passwd -6 -stdin >> /boot/firmware/userconf.txt'
 RUN rm /etc/ssh/sshd_config.d/rename_user.conf
+
+# Change default shell for pi user
+RUN chsh -s /bin/zsh pi
 
 # Allow basic connectivity (0 == success status code - enable)
 RUN raspi-config nonint do_ssh 0

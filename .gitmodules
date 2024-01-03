@@ -16,3 +16,6 @@
 [submodule "home/pi/snd-i2s_rpi"]
 	path = home/pi/snd-i2s_rpi
 	url = https://github.com/tRackIT-Systems/snd-i2s_rpi.git
+[submodule "home/pi/.oh-my-zsh"]
+	path = home/pi/.oh-my-zsh
+	url = https://github.com/ohmyzsh/ohmyzsh
