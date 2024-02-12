@@ -1,9 +1,9 @@
 # Set default ARCH
 : ${ARCH:=arm64}
 
-FROM https://downloads.raspberrypi.com/raspios_lite_${ARCH}/images/raspios_lite_${ARCH}-2023-10-10/2023-10-10-raspios-bookworm-${ARCH}-lite.img.xz
+FROM https://downloads.raspberrypi.com/raspios_lite_${ARCH}/images/raspios_lite_${ARCH}-2023-12-11/2023-12-11-raspios-bookworm-${ARCH}-lite.img.xz
 TO "tsOS-Base-${ARCH}.img"
-PUMP 1500M
+PUMP 1800M
 
 #################################################
 ### install software
@@ -223,7 +223,8 @@ RUN tee -a /etc/modprobe.d/raspi-blacklist.conf <<<'blacklist dvb_usb_rtl28xxu'
 
 # Enable hardware connectivity 
 RUN raspi-config nonint do_spi 0
-RUN raspi-config nonint do_serial 2
+RUN raspi-config nonint do_serial_hw 0
+RUN raspi-config nonint do_serial_cons 1
 
 RUN systemctl disable serial-getty@ttyS0.service
 
