@@ -31,7 +31,7 @@ RUN apt-get install -y \
     wireguard-tools
 
 # Install dkms
-RUN apt-get install -y dkms
+RUN apt-get install -y dkms bc
 
 # Install caddy
 if [[ "$ARCH" == "armhf" ]]; then
@@ -243,9 +243,9 @@ if [ -d docs/_site22/ ]; then INSTALL docs/_site /data/docs; fi
 # Enable i2s
 RUN sed -i 's/#dtparam=i2s=on/dtparam=i2s=on/' /boot/firmware/config.txt
 
-# Build snd-i2s_rpi kernel module
-RUN cp -R /home/pi/snd-i2s_rpi /usr/src/snd-i2s_rpi-0.0.4
-RUN bash -c 'for k in /lib/modules/*; do dkms install -k $(basename $k) snd-i2s_rpi/0.0.4; done'
+# Build and install 88x2bu kernel module
+RUN cp -R /home/pi/rtl88x2bu /usr/src/rtl88x2bu-5.8.7.1
+RUN bash -c 'for k in /lib/modules/*; do dkms install -k $(basename $k) rtl88x2bu/5.8.7.1; done'
 
 # Build and install snd-i2s_rpi DT overlay
 RUN dtc -o /boot/firmware/overlays/i2s-soundcard.dtbo /home/pi/snd-i2s_rpi/i2s-soundcard.dts

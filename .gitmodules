@@ -19,3 +19,6 @@
 [submodule "home/pi/.oh-my-zsh"]
 	path = home/pi/.oh-my-zsh
 	url = https://github.com/ohmyzsh/ohmyzsh
+[submodule "home/pi/rtl88x2bu"]
+	path = home/pi/rtl88x2bu
+	url = https://github.com/cilynx/rtl88x2bu
