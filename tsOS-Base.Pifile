@@ -250,3 +250,12 @@ RUN bash -c 'for k in /lib/modules/*; do dkms install -k $(basename $k) rtl88x2b
 # Build and install snd-i2s_rpi DT overlay
 RUN dtc -o /boot/firmware/overlays/i2s-soundcard.dtbo /home/pi/snd-i2s_rpi/i2s-soundcard.dts
 RUN tee -a /boot/firmware/config.txt <<<dtoverlay=i2s-soundcard
+
+# Install dependenies & enable WittyPi
+RUN tee -a /boot/firmware/config.txt <<<dtoverlay=wittypi
+RUN systemctl enable wittypi-detect.service wittypi.service wittypi-watcher.path
+RUN tee -a /etc/sysdweb.conf <<EOF
+[wittypi]
+title = WittyPi | Power Management
+unit = wittypi
+EOF
