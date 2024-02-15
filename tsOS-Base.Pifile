@@ -221,8 +221,8 @@ RUN systemctl enable huaweicheck.timer
 # Blacklist DVB-T driver
 RUN tee -a /etc/modprobe.d/raspi-blacklist.conf <<<'blacklist dvb_usb_rtl28xxu'
 
-# Enable hardware connectivity 
-RUN raspi-config nonint do_spi 0
+# Configure hardware connectivity 
+RUN sed -i 's/dtparam=audio=on/#dtparam=audio=on/' /boot/firmware/config.txt
 RUN raspi-config nonint do_serial_hw 0
 RUN raspi-config nonint do_serial_cons 1
 
@@ -249,7 +249,6 @@ RUN bash -c 'for k in /lib/modules/*; do dkms install -k $(basename $k) rtl88x2b
 
 # Build and install snd-i2s_rpi DT overlay
 RUN dtc -o /boot/firmware/overlays/i2s-soundcard.dtbo /home/pi/snd-i2s_rpi/i2s-soundcard.dts
-RUN tee -a /boot/firmware/config.txt <<<dtoverlay=i2s-soundcard
 
 # Install dependenies & enable WittyPi
 RUN tee -a /boot/firmware/config.txt <<<dtoverlay=wittypi
