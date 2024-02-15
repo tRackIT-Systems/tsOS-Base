@@ -24,4 +24,4 @@
 	url = https://github.com/cilynx/rtl88x2bu
 [submodule "home/pi/Witty-Pi-4"]
 	path = home/pi/Witty-Pi-4
-	url = https://github.com/uugear/Witty-Pi-4
+	url = https://github.com/trackit-systems/Witty-Pi-4
