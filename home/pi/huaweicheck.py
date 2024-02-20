@@ -47,9 +47,9 @@ def ping_find_iface(candidates: tuple[str]) -> list[str]:
     return [i for i in os.listdir('/sys/class/net/') if i in candidates]
 
 
-def ping_cmd(ping_target: str = "8.8.8.8", iface_candidates: tuple[str] = ("eth1", "usb0")) -> list[str]:
+def ping_cmd(ping_target: str = "8.8.8.8", iface_candidates: tuple[str] = ("eth1", "usb0"), count: int = 10) -> list[str]:
     # define basic ping command
-    cmd = ["ping", ping_target, "-c", "1"]
+    cmd = ["ping", ping_target, "-c", f"{count}"]
 
     # find huawei ethernet device
     ifaces = ping_find_iface(iface_candidates)

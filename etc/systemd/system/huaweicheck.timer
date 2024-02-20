@@ -2,8 +2,8 @@
 Description=test
 
 [Timer]
-OnBootSec=60s
-OnUnitActiveSec=300s
+OnBootSec=1min
+OnUnitActiveSec=30min
 
 [Install]
 WantedBy=timers.target
