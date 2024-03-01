@@ -1,8 +1,10 @@
 [Unit]
-Description=Power Management
+Description=Schedule Management
 
 [Service]
 ExecStart=/usr/local/bin/wittypid --schedule /boot/firmware/schedule.yml -v
+Restart=always
+RestartSec=300s
 
 [Install]
 WantedBy=multi-user.target

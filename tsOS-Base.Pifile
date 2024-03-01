@@ -167,7 +167,7 @@ RUN python3 -m pip install --break-system-packages -e /home/pi/wittypi4
 RUN systemctl enable wittypid.service wittypid-watcher.path
 RUN tee -a /etc/sysdweb.conf <<EOF
 [wittypid]
-title = WittyPi | Power Management
+title = WittyPi | Schedule Management
 unit = wittypid
 EOF
 
