@@ -1,5 +1,5 @@
 [Path]
-PathChanged=/boot/firmware/schedule.wpi
+PathChanged=/boot/firmware/schedule.yml
 
 [Install]
 WantedBy=multi-user.target

@@ -1,0 +1,8 @@
+[Unit]
+Description=Power Management
+
+[Service]
+ExecStart=/usr/local/bin/wittypid --schedule /boot/firmware/schedule.yml -v
+
+[Install]
+WantedBy=multi-user.target
