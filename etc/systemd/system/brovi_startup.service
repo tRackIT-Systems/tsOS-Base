@@ -1,0 +1,10 @@
+[Unit]
+Description=Initialize Brovi E3372-325 modem during bootup
+DefaultDependencies=no
+Before=local-fs.target
+
+[Service]
+ExecStart=/usr/local/bin/brovi_startup
+
+[Install]
+WantedBy=sysinit.target

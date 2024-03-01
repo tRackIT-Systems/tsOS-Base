@@ -1,0 +1,26 @@
+#!/bin/bash
+
+for i in $(seq 15); do 
+    MATCH=( $(lsusb -d 3566:2001) )
+
+    # lsusb returns 0 if device was found
+    if [[ $? -eq 0 ]]; then 
+        echo "Brovi E3372-325 detected. Performing mode switch..."
+        echo ${MATCH[@]}
+
+        BUSNUM=${MATCH[1]}
+        DEVNUM=${MATCH[3]:0:-1}
+
+        echo /sbin/usb_modeswitch -b $BUSNUM -g $DEVNUM -v 3566 -p 2001 -W -R -w 400
+        /sbin/usb_modeswitch -b $BUSNUM -g $DEVNUM -v 3566 -p 2001 -W -R -w 400
+        echo /sbin/usb_modeswitch -b $BUSNUM -g $DEVNUM -v 3566 -p 2001 -W -R
+        /sbin/usb_modeswitch -b $BUSNUM -g $DEVNUM -v 3566 -p 2001 -W -R
+
+        echo "Mode switch completed."
+        break
+    fi
+
+    sleep 1    
+done
+
+echo "Finished."
