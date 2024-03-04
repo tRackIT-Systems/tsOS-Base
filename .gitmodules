@@ -12,7 +12,7 @@
 	url = https://github.com/tRackIT-Systems/pymqttutil
 [submodule "home/pi/pysmartsolar"]
 	path = home/pi/pysmartsolar
-	url = https://github.com/tRackIT-System/pysmartsolar
+	url = https://github.com/tRackIT-Systems/pysmartsolar
 [submodule "home/pi/snd-i2s_rpi"]
 	path = home/pi/snd-i2s_rpi
 	url = https://github.com/tRackIT-Systems/snd-i2s_rpi.git
@@ -24,7 +24,7 @@
 	url = https://github.com/cilynx/rtl88x2bu
 [submodule "home/pi/Witty-Pi-4"]
 	path = home/pi/Witty-Pi-4
-	url = https://github.com/trackit-systems/Witty-Pi-4
+	url = https://github.com/tRackIT-Systems/Witty-Pi-4
 [submodule "home/pi/wittypi4"]
 	path = home/pi/wittypi4
-	url = git@github.com:tRackIT-Systems/wittypi4.git
+	url = https://github.com/tRackIT-Systems/wittypi4
