@@ -1,6 +1,7 @@
 [Unit]
 Description=MQTTUtil
-After=network.target mosquitto.service time-sync.target hostname-config.service
+After=network-online.target mosquitto.service time-sync.target hostname-config.service
+Wants=network-online.target
 
 [Service]
 ExecStart=/usr/bin/python3 -m mqttutil -c /boot/firmware/mqttutil.conf -v --json
