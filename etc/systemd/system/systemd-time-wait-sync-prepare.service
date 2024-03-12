@@ -1,0 +1,11 @@
+[Unit]
+Description=Prepare systemd-time-wait-sync folders
+Before=systemd-time-wait-sync.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/mkdir -pv /run/systemd/timesync
+RemainAfterExit=yes
+
+[Install]
+WantedBy=time-sync.target

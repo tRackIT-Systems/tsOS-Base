@@ -1,5 +1,7 @@
 [Unit]
 Description=Schedule Management
+Before=time-sync.target
+Wants=time-sync.target
 
 [Service]
 ExecStart=/usr/local/bin/wittypid --schedule /boot/firmware/schedule.yml -v
