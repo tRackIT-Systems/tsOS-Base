@@ -190,6 +190,9 @@ title = Wireguard | Remote Access (/boot/firmware/wireguard.conf)
 unit = wg-quick@wireguard
 EOF
 
+# disable resolv.conf altering
+RUN chattr +i /etc/resolv.conf
+
 #################################################
 ### services configuration
 
