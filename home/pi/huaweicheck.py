@@ -19,8 +19,8 @@ parser.add_argument("--timeout", help="Timeout for requests", type=float, defaul
 parser.add_argument("--ping-huawei", help="Check ping of huawei device", default=True, action=argparse.BooleanOptionalAction)
 parser.add_argument("--ping-global", help="Check ping of global adddress", default=True, action=argparse.BooleanOptionalAction)
 parser.add_argument("--force-reset", help="Ignore ping results and force reset", default=False, action=argparse.BooleanOptionalAction)
-parser.add_argument("--uhubctl-reset", help="use uhubctl for reset", default=False, action=argparse.BooleanOptionalAction)
-parser.add_argument("--api-reset", help="use huawei http api for reset", default=True, action=argparse.BooleanOptionalAction)
+parser.add_argument("--uhubctl-reset", help="use uhubctl for reset", default=True, action=argparse.BooleanOptionalAction)
+parser.add_argument("--api-reset", help="use huawei http api for reset", default=False, action=argparse.BooleanOptionalAction)
 
 
 class USBDevice:
