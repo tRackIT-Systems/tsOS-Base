@@ -1,9 +1,9 @@
 # Set default ARCH
 : ${ARCH:=arm64}
 
-FROM https://downloads.raspberrypi.com/raspios_lite_${ARCH}/images/raspios_lite_${ARCH}-2023-12-11/2023-12-11-raspios-bookworm-${ARCH}-lite.img.xz
+FROM https://downloads.raspberrypi.com/raspios_lite_${ARCH}/images/raspios_lite_${ARCH}-2024-07-04/2024-07-04-raspios-bookworm-${ARCH}-lite.img.xz
 TO "tsOS-Base-${ARCH}.img"
-PUMP 1200M
+PUMP 1000M
 
 #################################################
 ### install software
@@ -152,8 +152,8 @@ unit = chrony
 EOF
 
 # Install dependenies & enable WittyPi
-RUN cp -R /home/pi/wittypi4/rtc-pcf85063-wittypi4 /usr/src/rtc-pcf85063-wittypi4-0.0.1
-RUN bash -c 'for k in /lib/modules/*; do dkms install -k $(basename $k) rtc-pcf85063-wittypi4/0.0.1; done'
+RUN cp -R /home/pi/wittypi4/rtc-pcf85063-wittypi4 /usr/src/rtc-pcf85063-wittypi4-6.6.y
+RUN bash -c 'for k in /lib/modules/6.6.*; do dkms install -k $(basename $k) rtc-pcf85063-wittypi4/6.6.y; done'
 
 ### compile overlays and enable hardware
 RUN dtc -O dtb -o /boot/firmware/overlays/wittypi4.dtbo /home/pi/wittypi4/wittypi4-overlay.dts
@@ -264,7 +264,3 @@ if [ -d docs/_site22/ ]; then INSTALL docs/_site /data/docs; fi
 
 # Enable i2s
 RUN sed -i 's/#dtparam=i2s=on/dtparam=i2s=on/' /boot/firmware/config.txt
-
-# Build and install 88x2bu kernel module
-RUN cp -R /home/pi/rtl88x2bu /usr/src/rtl88x2bu-5.8.7.1
-RUN bash -c 'for k in /lib/modules/*; do dkms install -k $(basename $k) rtl88x2bu/5.8.7.1; done'
