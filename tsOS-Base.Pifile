@@ -236,8 +236,11 @@ title = Mosquitto | MQTT Broker
 unit = mosquitto
 EOF
 
-# Install and enable pysmartsolar
+# Install pysmartsolar
 RUN python3 -m pip install --break-system-packages -e /home/pi/pysmartsolar
+
+# Install vedirect
+RUN python3 -m pip install --break-system-packages vedirect
 
 # Install and enable pymqttutil
 RUN python3 -m pip install --break-system-packages -e /home/pi/pymqttutil
