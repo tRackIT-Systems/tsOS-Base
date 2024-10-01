@@ -276,6 +276,9 @@ core_freq=250
 force_turbo=1
 EOF
 
+# Enable UART0 on GPIO header in RPi5 
+RUN tee -a /boot/firmware/config.txt <<<dtoverlay=uart0-pi5
+
 # Enable gpsd
 RUN systemctl enable gpsd
 
