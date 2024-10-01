@@ -1,12 +1,10 @@
 services:
   pimod:
-    build: ./pimod
+    image: nature40/pimod:v0.6.1
     privileged: true
     tty: true
     volumes:
       - .:/tsOS-Base
-      - ./pimod:/pimod
     working_dir: /tsOS-Base
     environment:
-      - PATH:'$PATH:/pimod'
       - IMG
