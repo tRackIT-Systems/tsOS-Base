@@ -1,7 +1,7 @@
 # Set default ARCH
 : ${ARCH:=arm64}
 
-FROM https://downloads.raspberrypi.com/raspios_lite_${ARCH}/images/raspios_lite_${ARCH}-2024-07-04/2024-07-04-raspios-bookworm-${ARCH}-lite.img.xz
+FROM https://downloads.raspberrypi.com/raspios_lite_${ARCH}/images/raspios_lite_${ARCH}-2024-11-19/2024-11-19-raspios-bookworm-${ARCH}-lite.img.xz
 TO "tsOS-Base-${ARCH}.img"
 PUMP 1000M
 
