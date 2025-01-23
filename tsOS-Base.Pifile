@@ -190,6 +190,7 @@ EOF
 #################################################
 ### network configuration
 
+RUN apt-get install -y ifupdown
 RUN raspi-config nonint do_wifi_country "DE"
 
 # enable hostapd-config script (WiFi AP)
