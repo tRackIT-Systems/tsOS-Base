@@ -1,27 +1,27 @@
 [submodule "home/pi/sysdweb"]
 	path = home/pi/sysdweb
-	url = https://github.com/tRackIT-Systems/sysdweb
+	url = https://github.com/trackIT-Systems/sysdweb
 [submodule "home/pi/uhubctl"]
 	path = home/pi/uhubctl
 	url = https://github.com/mvp/uhubctl
 [submodule "home/pi/pymqttutil"]
 	path = home/pi/pymqttutil
-	url = https://github.com/tRackIT-Systems/pymqttutil
+	url = https://github.com/trackIT-Systems/pymqttutil
 [submodule "home/pi/pysmartsolar"]
 	path = home/pi/pysmartsolar
-	url = https://github.com/tRackIT-Systems/pysmartsolar
+	url = https://github.com/trackIT-Systems/pysmartsolar
 [submodule "home/pi/snd-i2s_rpi"]
 	path = home/pi/snd-i2s_rpi
-	url = https://github.com/tRackIT-Systems/snd-i2s_rpi.git
+	url = https://github.com/trackIT-Systems/snd-i2s_rpi.git
 [submodule "home/pi/.oh-my-zsh"]
 	path = home/pi/.oh-my-zsh
 	url = https://github.com/ohmyzsh/ohmyzsh
 [submodule "home/pi/Witty-Pi-4"]
 	path = home/pi/Witty-Pi-4
-	url = https://github.com/tRackIT-Systems/Witty-Pi-4
+	url = https://github.com/trackIT-Systems/Witty-Pi-4
 [submodule "home/pi/wittypi4"]
 	path = home/pi/wittypi4
-	url = https://github.com/tRackIT-Systems/wittypi4
+	url = https://github.com/trackIT-Systems/wittypi4
 [submodule "home/pi/vedirect_dump"]
 	path = home/pi/vedirect_dump
-	url = https://github.com/tRackIT-Systems/vedirect_dump
+	url = https://github.com/trackIT-Systems/vedirect_dump

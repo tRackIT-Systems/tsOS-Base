@@ -1,4 +1,4 @@
 # set ARCH
 ARCH=armhf
 
-INCLUDE tsOS-Base
+INCLUDE tsOS-base

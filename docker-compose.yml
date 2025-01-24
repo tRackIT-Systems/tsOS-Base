@@ -4,8 +4,8 @@ services:
     privileged: true
     tty: true
     volumes:
-      - .:/tsOS-Base
-    working_dir: /tsOS-Base
+      - .:/tsOS-base
+    working_dir: /tsOS-base
     environment:
       - IMG
-    command: pimod.sh tsOS-Base.Pifile
+    command: pimod.sh tsOS-base.Pifile

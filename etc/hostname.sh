@@ -2,7 +2,7 @@
 
 echo "Running RasperryPi hostname configuration script..." 1>&2
 
-HOSTNAME="tsOS-Base"
+HOSTNAME="tsOS-base"
 ID=`cat /proc/cpuinfo | grep Serial | cut -d ' ' -f 2 | cut -c9-16`
 
 if [ "$ID" == "" ]; then
