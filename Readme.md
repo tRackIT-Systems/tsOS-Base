@@ -1,5 +1,6 @@
 # tsOS-base
 [![Build tsOS-base Images](https://github.com/trackIT-Systems/tsOS-base/actions/workflows/build.yml/badge.svg)](https://github.com/trackIT-Systems/tsOS-base/actions/workflows/build.yml)
+![GitHub Release](https://img.shields.io/github/v/release/trackIT-Systems/tsOS-base)
 
 tsOS-base is the basis for trackIT Systems operating system distributions for sensor stations in stand-alone operation in the field. It is based on a Raspberry Pi OS and installs some software that is required for the various purposes.
 
