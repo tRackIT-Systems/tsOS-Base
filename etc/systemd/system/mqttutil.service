@@ -4,7 +4,7 @@ After=network-online.target mosquitto.service time-sync.target hostname-config.s
 Wants=network-online.target
 
 [Service]
-ExecStart=/usr/bin/python3 -m mqttutil -c /boot/firmware/mqttutil.conf -v --json
+ExecStart=/usr/bin/python3 -m mqttutil -c /boot/firmware/mqttutil.conf -v --outpath=/data
 Restart=always
 RestartSec=10s
 User=pi
